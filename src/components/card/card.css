@@ -1,0 +1,35 @@
+
+.card__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__content-name{
+    margin-top: 3rem;
+}
+.price{
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+.add-to-cart{
+    background-color: #4B5548;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+
+}
+
+@media screen and (max-width: 768px){
+    .add-to-cart{
+        padding: 1rem 1.5rem;
+    }
+    .product-image{
+        width: 50%;
+        max-height: 100px;
+    }
+}

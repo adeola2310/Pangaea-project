@@ -1,0 +1,117 @@
+
+
+.cart__wrapper{
+    /*background-color: #6e7b70;*/
+    position: fixed;
+    background-color: rgba(183,189,184, 0.8);
+    top: 0;
+    z-index: .38;
+    left: 0;
+    height: 100vh;
+    overflow-y: hidden;
+    transition: all .4s ease-in-out;
+    width: 100%;
+}
+.right-cart{
+    position: fixed;
+    top: 0;
+    background-color: #f2f2ef;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    left: auto;
+    right: 0;
+    float: right;
+    max-width: 550px;
+    width: 100%;
+    z-index: 1500;
+}
+
+.cart-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 13px;
+}
+
+.cart-title{
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #4B5548;
+}
+
+.currency-row{
+    margin: 15px;
+}
+.currency-select{
+    padding: 8px 13px 5px 10px;
+    width: 80px;
+    background-position: 100% 60%;
+}
+select{
+    background: #fff url(//cdn.shopify.com/s/files/1/2960/5204/t/4/assets/select.png?5997012569058552034) no-repeat right center;
+    cursor: pointer;
+    /*padding: 15px 15px;*/
+    outline: none;
+    border: none;
+    /*-webkit-padding-end: 30px;*/
+    background-size: 17px 5px;
+    -webkit-appearance: none;
+    text-indent: 0.01px;
+}
+.item-row{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: grid;
+    overflow-y: auto;
+    max-height: 50vh;
+    grid-template-rows: auto;
+    grid-row-gap: 25px;
+}
+
+.cart-footer{
+    border-top: 1px solid #d0d0d0;
+    box-shadow: 0 -4px 12px rgba(0,0,0,.15);
+    z-index: 1;
+    margin-top: 3rem;
+}
+
+.subtotal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1e2d2b;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.footer-details{
+    display: grid;
+    padding-right: 10px;
+    margin-top: 20px;
+    padding-left: 10px;
+    grid-template-rows: auto;
+    grid-row-gap: 15px;
+}
+
+.purchase{
+    padding: 1rem 1.5rem;
+    outline: none;
+    background-color: #ffffff;
+    text-transform: uppercase;
+    border: 1px solid #1e2d2b;
+    font-size: 10px;
+}
+
+.checkout{
+    padding: 1rem 1.5rem;
+    outline: none;
+    color: white;
+    background-color: #4B5548;
+    text-transform: uppercase;
+    font-size: 10px;
+    border: 0;
+}
