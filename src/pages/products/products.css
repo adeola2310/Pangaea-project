@@ -35,8 +35,11 @@
 
 }
 .product-filter{
-    padding: 8px 13px 5px 10px;
-    width: 80px;
+    width: 200px;
+    padding: 1rem 1rem;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #CDD1CE;
 }
 
 .loader{

@@ -1,16 +1,13 @@
 import React, {useState} from 'react';
 import './card.css';
-import Cart from "../cart/cart";
 import formatter from "../../utils/currencyFormatter";
 
-const Card = ({productDetails}) => {
-    const [cartHolder, setCartHolder] = useState(false);
+const Card = ({productDetails, addToCart, setOpenCart}) => {
 
-    const addToCart = () => {
-        console.log("here")
-        setCartHolder(true);
+
+    const onAdd = () => {
+        addToCart(productDetails);
     }
-
 
     return (
         <div className="card">
@@ -19,14 +16,8 @@ const Card = ({productDetails}) => {
                      className="product-image"/>
                 <p className="card__content-name">{productDetails.title}</p>
                 <span className="price"> From {formatter.format(productDetails.price)}</span>
-                <button className="add-to-cart" onClick={() => addToCart()}>Add to Cart</button>
+                <button className="add-to-cart" onClick={() => onAdd()}>Add to Cart</button>
             </div>
-
-
-            {
-                cartHolder &&
-                <Cart  />
-            }
         </div>
     )
 }

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './products.css';
 import Header from "../../components/Header/Header";
 import Card from "../../components/card/card";
 import { Query } from 'react-apollo';
-import { gql} from 'apollo-boost';
+import { gql } from 'apollo-boost';
+import Cart from "../../components/cart/cart";
+import Logo from "../../images/lumen.png";
 
 const GET_ALL_PRODUCTS = gql`
 {
@@ -17,13 +19,38 @@ const GET_ALL_PRODUCTS = gql`
 `
 
 const Products = ()=>{
+    const [cartItems, setCartItems] = useState([]);
+    const [openCart, setOpenCart] = useState(false);
 
-    // const getItems = ()=>{
-    //     const cart = data?.products
-    // }
+
+    const onAddItemToCart = (selected) =>{
+        let tempCartItem = [...cartItems];
+        if(tempCartItem.length > 0){
+            tempCartItem.map(item => {
+                if(item.id === selected.id){
+                    item.quantity =  item.quantity + 1
+                }else{
+                    tempCartItem.push({...selected, quantity:  1});
+                }
+            })
+        }else{
+            tempCartItem.push({...selected, quantity:  1});
+        }
+
+        setCartItems(tempCartItem)
+        setOpenCart(!openCart);
+
+    }
+
+    const removeCartItem = index => {
+        let tempCartItem = [...cartItems];
+        tempCartItem.splice(index, 1)
+        setCartItems(tempCartItem);
+    };
+
     return(
    <>
-       <Header/>
+       <Header cartDetails={cartItems}/>
 
        <div className="filter__Space">
            <div className="pro">
@@ -32,9 +59,11 @@ const Products = ()=>{
            </div>
            <div className="filter">
                <select className="product-filter">
-                   <option>value</option>
-                   <option>value</option>
-                   <option>value</option>
+                   <option>Filter by</option>
+                   <option> All products</option>
+                   <option> New products</option>
+                   <option> Sets </option>
+                   <option>Skin care</option>
                </select>
            </div>
        </div>
@@ -44,13 +73,15 @@ const Products = ()=>{
              <Query query={GET_ALL_PRODUCTS}>
                 {
                    ({loading, data, error})=>{
-                       console.log("allll", data);
                       if(loading) return <h4 className="loader">products loading...</h4>
                        return (
                            data?.products && data?.products?.map((details, index)=>(
                                <Card
                                    key={index}
                                    productDetails={details}
+                                   addToCart={onAddItemToCart}
+                                   openCart={openCart}
+                                   setOpenCart={setOpenCart}
                                />
                            ))
                        )
@@ -58,9 +89,21 @@ const Products = ()=>{
                 }
 
              </Query>
+              {openCart &&
+              <Cart
+                  setOpenCart={setOpenCart}
+                  openCart={openCart}
+                  carty={cartItems}
+                  deleteCart={removeCartItem}
+              />}
           </div>
 
        </div>
+
+
+
+
+
        </>
 
     )
