@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './card.css';
-import formatter from "../../utils/currencyFormatter";
+import formatCurrency from "../../utils/currencyFormatter";
 
-const Card = ({productDetails, addToCart, setOpenCart}) => {
+const Card = ({productDetails, currency, addToCart}) => {
 
 
     const onAdd = () => {
@@ -15,7 +15,7 @@ const Card = ({productDetails, addToCart, setOpenCart}) => {
                 <img src={productDetails.image_url} aria-hidden alt="product image" height="180" width="180"
                      className="product-image"/>
                 <p className="card__content-name">{productDetails.title}</p>
-                <span className="price"> From {formatter.format(productDetails.price)}</span>
+                <span className="price"> From {formatCurrency(productDetails.price, currency)}</span>
                 <button className="add-to-cart" onClick={() => onAdd()}>Add to Cart</button>
             </div>
         </div>

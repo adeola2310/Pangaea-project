@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Header.css';
 import Logo from '../../images/lumen.png'
-import Cart from "../cart/cart";
 
-const Header = ({cartDetails}) => {
+const Header = ({ numberOfItem, setOpenCart, openCart}) => {
 
 
 
@@ -18,10 +17,9 @@ const Header = ({cartDetails}) => {
                 </ul>
                 <div className="nav__details--cart">
                     <span className="cart">Account</span>
-                    <span className="cart">Cart({cartDetails?.length || 0})</span>
+                    <span className="cart" onClick={()=>setOpenCart(!openCart)}>Cart({numberOfItem})</span>
                 </div>
             </div>
-
 
 
         </div>

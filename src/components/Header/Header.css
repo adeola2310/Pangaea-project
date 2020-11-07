@@ -28,6 +28,7 @@ background-color: #ffffff;
 
 .cart{
     margin-left: 20px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px){
