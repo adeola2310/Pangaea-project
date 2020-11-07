@@ -29,6 +29,7 @@ const Products = ({cartList, setCartList}) => {
         setOpenCart(!openCart);
     }
 
+
     const items = Object.keys(cartList).length;
 
 
@@ -62,7 +63,7 @@ const Products = ({cartList, setCartList}) => {
                             ({loading, data, error}) => {
                                 if (loading) return <h4 className="loader">products loading...</h4>
                                 return (
-                                    data?.products && data?.products?.map((details, index) => (
+                                      data?.products?.map((details, index) => (
                                         <Card
                                             key={index}
                                             productDetails={details}
